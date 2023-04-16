@@ -135,7 +135,7 @@ span.text-red {
     #e97689,
     #4e424a
   ); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  */border-radius: 15px;
+  border-radius: 10px;
   position: relative;
   height: 500px;
   line-height: 0.9;

@@ -6,7 +6,7 @@ import { urlFor } from '../lib/client';
 const Product = ({ product: { image, name, slug, price } }) => {
   return (
     <div>
-      <Link href={`/product/${slug}`}>
+      <Link href={`/product/${slug.current}`}>
         {/* I received the slug from here, pushing error. Code:  */}
         {/*Supposed code: <Link href={`/product/${slug.current}`}>
          */}
