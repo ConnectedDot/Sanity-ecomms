@@ -6,7 +6,10 @@ import { urlFor } from '../lib/client';
 const Product = ({ product: { image, name, slug, price } }) => {
   return (
     <div>
-      <Link href={`/product/$`}>
+      <Link href={`/product/${slug}`}>
+        {/* I received the slug from here, pushing error. Code:  */}
+        {/*Supposed code: <Link href={`/product/${slug.current}`}>
+         */}
         <div className="product-card">
           <img
             src={urlFor(image && image[0])}
