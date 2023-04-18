@@ -8,7 +8,7 @@ import {
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
-import { useStateContext } from '../../../context/StateContext';
+import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
@@ -39,11 +39,12 @@ const ProductDetails = ({ product, products }) => {
                 className={
                   i === index ? 'small-image selected-image' : 'small-image'
                 }
-                onMouseOver={() => setIndex(i)}
+                onMouseEnter={() => setIndex(i)}
               />
             ))}
           </div>
         </div>
+
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
@@ -65,9 +66,7 @@ const ProductDetails = ({ product, products }) => {
               <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num" onClick="">
-                {qty}
-              </span>
+              <span className="num">{qty}</span>
               <span className="plus" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
@@ -81,12 +80,13 @@ const ProductDetails = ({ product, products }) => {
             >
               Add to Cart
             </button>
-            <button type="button" className="buy-now">
+            <button type="button" className="buy-now" onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>
         </div>
       </div>
+
       <div className="maylike-products-wrapper">
         <h2>You may also like</h2>
         <div className="marquee">
@@ -103,11 +103,11 @@ const ProductDetails = ({ product, products }) => {
 
 export const getStaticPaths = async () => {
   const query = `*[_type == "product"] {
-      slug {
-        current
-      }
+    slug {
+      current
     }
-    `;
+  }
+  `;
 
   const products = await client.fetch(query);
 
